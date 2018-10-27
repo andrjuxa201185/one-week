@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="header-page">Подать объявление</h4> 
+            <div class="white-bg">
+                <form action="/add" method="post" id="formAdd" enctype="multipart/form-data">
+
+                    <div class="form-group row">
+                        <label for="input" class="col-sm-2 col-form-label">Заголовок<span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            <input type="text" name="header" class="form-control valid" id="input" required placeholder="Заголовок вашего объявления">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputrubriс" class="col-sm-2 col-form-label">Рубрика<span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            <select name="rubric" class="form-control valid" id="inputrubriс" required>
+                                <option value="" disabled selected>Выберите рубрику</option>
+                                <option value="недвижимость">недвижимость</option>
+                                <option value="транспорт">транспорт</option>
+                                <option value="работа">работа</option>
+                                <option value="отдам_даром">отдам даром</option>
+                                <option value="детский_мир">детский мир</option>
+                                <option value="животные">животные</option>
+                                <option value="электроника">электроника</option>
+                                <option value="услуги">услуги</option>
+                                <option value="строительство">строительство</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputcity" class="col-sm-2 col-form-label">Город<span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            <select name="city" class="form-control valid" id="inputcity" required>
+                                <option value="" disabled selected>Выберите город</option>
+                                <option value="харьков">Харьков</option>
+                                <option value="киев">Киев</option>
+                                <option value="львов">Львов</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Textarea" class="col-sm-2 col-form-label">Описание<span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control valid" name="text" id="Textarea" rows="10" maxlength="500" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="price" class="col-sm-2 col-form-label">Цена(грн)</label>
+                        <div class="col-sm-10">
+                            <input type="number" min="0" max="1000000000" name="price" class="form-control" id="price"  placeholder="Укажите цену">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="file" class="col-sm-2 col-form-label">Фото <span class="span-file">(max=4MB)</span></label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" id="file" name="file" title="jpg, pdf, gif">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Email<span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            {% if user %}
+                                <input type="email" name="email" class="form-control" id="email" value="{{user.email}}" readonly>
+                            {% else %}
+                                <input type="email" name="email" autocomplete="off" class="form-control valid" id="email" 
+                                placeholder="Email для входа на сайт" required>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% if not user %}
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Пароль<span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            <input type="password" name="password" autocomplete="off" class="form-control valid" id="password" 
+                            placeholder="Пароль для входа на сайт" required>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="form-group row">
+                        <label for="inputtel" class="col-sm-2 col-form-label">Телефон<span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            <input type="tel" name="phone" class="form-control valid" id="inputtel" pattern="(\+?\d[- .]*){7,13}"
+                             placeholder="Контактный номер телефона" title="+38-0xx-xxx-xx-xx" required>
+                        </div>
+                    </div>
+
+                    <div class="right-button">
+                        <button type="submit" id="submit" class="btn btn-primary" disabled>Опубликовать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

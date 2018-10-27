@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<table class="table">
+    <tr>
+        <th>ads_id</th>
+        <th>header</th>
+        <th>email</th>
+        <th>text</th>
+        <th>path</th>
+        <th>rubric</th>
+        <th>city</th>
+        <th>price</th>
+        <th>phone</th>
+        <th>date</th>
+    </tr>
+    {% for ad in ads %}
+        <tr>
+            <td>{{ad.ads_id}}</td>
+            <td>{{ad.header}}</td>
+            <td>{{ad.email}}</td>
+            <td>{{ad.text}}</td>
+            <td>{{ad.path}}</td>
+            <td>{{ad.rubric}}</td>
+            <td>{{ad.city}}</td>
+            <td>{{ad.price}}</td>
+            <td>{{ad.phone}}</td>
+            <td>{{ad.date}}</td>
+        </tr>
+    {% endfor%}
+</table>
+{%endblock%}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+    </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+        </tr>
+    {% endfor%}
+</table>
+{%endblock%}

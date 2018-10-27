@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-9 col-md-8 ad-main">
+            <h3>{{ad.header}}</h3>
+            <ul>
+                <li>{{ad.city}}</li>
+                <li>{{ad.date}}</li>
+                <li>id:{{ad.ads_id}}</li>
+            </ul>
+            <div class="ad-center">
+                <div class="show-ad">
+                    <img src="../{{ad.path}}" alt="img">
+                </div>
+            </div>
+            <div class="ad-center">
+                <div>
+                    <div>
+                        {{ad.text}}
+                    </div>
+                </div>
+            </div>
+            {% if session.user_id %}
+                <div class="apple">
+                    <img class="img-apple" src="../static/img/icons8-яблоко-402.png" alt="apple" title="добвить в закладки">
+                    <img class="img-apple2" data-id="{{ad.ads_id}}" {%if ad.ads_id in bookmarks%}style="opacity:1" 
+                    title="удалить из закладок"{%else%}title="добвить в закладки"{%endif%}
+                    src="../static/img/icons8-яблоко-40.png" alt="apple">
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="col-lg-3 col-md-4 ad-contact" >
+            <div class="row">
+                <div class='col-md-12 ad-price-tel'>
+                    <div>
+                        <span><img src="../static/img/price.png" alt=""></span>
+                        <p>{{ad.price}}грн</p>
+                    </div>
+                </div>
+                <div class='col-md-12 ad-price-tel'>
+                    <div>
+                        <span><img src="../static/img/tel.png" alt=""></span>
+                        <p>{{ad.phone}}</p>
+                    </div>
+                </div>
+                <div class='col-md-12 ad-price-tel'>
+                    <div>
+                        <span><img src="../static/img/email.png" alt=""></span>
+                        <p>{{ad.email}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+{% endblock%}

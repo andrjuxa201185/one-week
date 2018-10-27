@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<div class="h">
+<section class="search"></section>
+    <div class="container">
+        <div class="row"></div>
+            <div class="input-group mb-3 col-md-6 offset-md-4">
+                <input type="text" class="form-control" id="q" placeholder="Поиск по заголовкам" autocomplete="off">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" id="b" type="button">Поиск</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<div class="container">
+    <div class="filters">
+        <div class="dropdown show">
+            <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="buttonFilterDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {% if sort and sort != 'None'%}
+                    самые старые
+                {% else %}
+                    самые новые
+                {% endif%}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="buttonFilterDate">
+                <a class="dropdown-item" href="/show/{{param}}?city={{city}}">самые новые</a>
+                <a class="dropdown-item" href="/show/{{param}}?sort=old-new&city={{city}}">самые старые</a>
+            </div>
+        </div>
+        
+        <div class="dropdown show">
+            <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="buttonFilterCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {% if city and city != 'None'%}
+                    {{city}}
+                {% else %}
+                    все города
+                {% endif %}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="buttonFilterCity">
+                <a class="dropdown-item" href="/show/{{param}}?sort={{sort}}">все города</a>
+                <a class="dropdown-item" href="/show/{{param}}?city=харьков&sort={{sort}}">Харьков</a>
+                <a class="dropdown-item" href="/show/{{param}}?city=киев&sort={{sort}}">Киев</a>
+                <a class="dropdown-item" href="/show/{{param}}?city=львов&sort={{sort}}">Львов</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12 aside-rubric">
+            <ul>
+                <li id="все_объявления"><a href="/show/все_объявления">все объявления<span>{{count_all}}</span></a></li>
+                <li id="недвижимость"><a href="/show/недвижимость">недвижимость<span>{{count_ads['недвижимость']}}</span></a></li>
+                <li id="транспорт"><a href="/show/транспорт">транспорт<span>{{count_ads['транспорт']}}</span></a></li>
+                <li id="работа"><a href="/show/работа">работа<span>{{count_ads['работа']}}</span></a></li>
+                <li id="отдам_даром"><a href="/show/отдам_даром">отдам даром<span>{{count_ads['отдам_даром']}}</span></a></li>
+                <li id="детский_мир"><a href="/show/детский_мир">детский мир<span>{{count_ads['детский_мир']}}</span></a></li>
+                <li id="животные"><a href="/show/животные">животные<span>{{count_ads['животные']}}</span></a></li>
+                <li id="строительство"><a href="/show/строительство">строительство<span>{{count_ads['строительство']}}</span></a></li>
+                <li id="электроника"><a href="/show/электроника">электроника<span>{{count_ads['электроника']}}</span></a></li>
+                <li id="услуги"><a href="/show/услуги">услуги<span>{{count_ads['услуги']}}</span></a></li>
+            </ul>
+        </div>
+        
+        <div class="col-lg-9 col-md-8 col-sm-12">
+            {% if ads %}
+                {% for ad in ads%}
+                <div class="row show-ads">
+
+                    <div class="img-ads">
+                        <a href="/show_ad/{{ad.ads_id}}" >
+                            <img src="../{{ad.path}}" alt="img">
+                        </a>
+                    </div>
+
+                    <div class="col-lg-8 col-md-7 col-xl-9 col-sm-12">
+                        <div class="text-ads">
+                            <h4><a href="/show_ad/{{ad.ads_id}}">{{ad.header}}</a></h4>
+                            <p><a href="/show_ad/{{ad.ads_id}}">{{ad.rubric}}</a></p>
+                            <div><a href="/show_ad/{{ad.ads_id}}">{{ad.text}}</a></div>
+                            <ul>
+                                <li><a href="/show/{{ad.city}}">{{ad.city}}</a></li>
+                                <li><a href="/show_ad/{{ad.ads_id}}">{{ad.date}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% if ad.price != 0 %}
+                        <div class="price-ads">
+                            {{ad.price}}грн
+                        </div>
+                    {% endif %}
+                    
+                    {% if session.user_id %}
+                        <div class="apple">
+                            <img class="img-apple" src="../static/img/icons8-яблоко-402.png" alt="apple" title="добвить в закладки">
+                            <img class="img-apple2" data-id="{{ad.ads_id}}" {%if ad.ads_id in bookmarks%}style="opacity:1" 
+                            title="удалить из закладок"{%else%}title="добвить в закладки"{%endif%}
+                            src="../static/img/icons8-яблоко-40.png" alt="apple">
+                        </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('{{param}}').style.cssText = 'background: rgb(185, 183, 183)';
+    $('#{{param}} a').css('color', 'black');
+</script>
+
+{%endblock%}

@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="header-page">Редактировать объявление</h4> 
+            <div class="white-bg">
+                <form action="/edit/{{ad.ads_id}}" method="post" id="formAdd"  enctype="multipart/form-data">
+
+                    <div class="form-group row">
+                        <label for="input" class="col-sm-2 col-form-label">Заголовок*</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="header" value="{{ad.header}}" class="form-control valid" id="input" required >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputrubriс" class="col-sm-2 col-form-label">Рубрика*</label>
+                        <div class="col-sm-10">
+                            <select name="rubric" class="form-control valid" id="inputrubriс" required>
+                                <option value="{{ad.rubric}}" selected>{{ad.rubric}}</option>
+                                <option value="недвижимость">недвижимость</option>
+                                <option value="транспорт">транспорт</option>
+                                <option value="работа">работа</option>
+                                <option value="отдам_даром">отдам даром</option>
+                                <option value="детский_мир">детский мир</option>
+                                <option value="животные">животные</option>
+                                <option value="электроника">электроника</option>
+                                <option value="услуги">услуги</option>
+                                <option value="строительство">строительство</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputcity" class="col-sm-2 col-form-label">Город*</label>
+                        <div class="col-sm-10">
+                            <select name="city" class="form-control valid" id="inputcity" required>
+                                <option value="{{ad.city}}" selected>{{ad.city}}</option>
+                                <option value="харьков">Харьков</option>
+                                <option value="киев">Киев</option>
+                                <option value="львов">Львов</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Textarea" class="col-sm-2 col-form-label">Описание*</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control valid" name="text" id="Textarea" rows="10" maxlength="500" required>{{ad.text}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="price" class="col-sm-2 col-form-label">Цена(грн)</label>
+                        <div class="col-sm-10">
+                            <input type="number" value="{{ad.price}}" min="0" max="1000000000" name="price" class="form-control" id="price">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="file" class="col-sm-2 col-form-label">Фото</label>
+                        <div class="col-sm-10">
+                            <input type="file" value="{{ad.path}}" class="form-control" id="file" name="file" title="jpg, pdf, gif">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Email*</label>
+                        <div class="col-sm-10">
+                            <input type="email" name="email" class="form-control" id="email" value="{{ad.email}}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputtel" class="col-sm-2 col-form-label">Телефон*</label>
+                        <div class="col-sm-10">
+                            <input type="tel" name="phone" class="form-control valid" id="inputtel" pattern="(\+?\d[- .]*){7,13}"
+                            value="{{ad.phone}}" title="+38-0xx-xxx-xx-xx" required>
+                        </div>
+                    </div>
+
+                    <div class="right-button">
+                        <button type="submit" id="submit" class="btn btn-primary" disabled>Редактировать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

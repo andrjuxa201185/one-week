@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block main  %}
+    <section class="search"></section>
+        <div class="container">
+            <div class="row">
+                <div class="input-group mb-4 col-md-6 offset-md-4">
+                    <input type="text" class="form-control" id="q" placeholder="Поиск по заголовкам " autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" id="b" type="button">Поиск</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <div class="container">
+            <div class="row white-bg">
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/недвижимость">
+                        <img src="../static/img/01.png" alt="ключи от квартиры">
+                        <h2>недвижимость</h2>
+                        <p>продажа, аренда</p>
+                        <p>({{count_ads['недвижимость']}})</p>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/транспорт">
+                        <img src="../static/img/02.png" alt="транспорт">
+                        <h2>транспорт</h2>
+                        <p>авто, мото, запчасти</p>
+                        <p>({{count_ads['транспорт']}})</p>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/работа">
+                        <img src="../static/img/03.png" alt="работа">
+                        <h2>работа</h2>
+                        <p>вакансии, резюме </p>
+                        <p>({{count_ads['работа']}})</p>
+                    </a>
+                </div>            
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/отдам_даром">
+                        <img src="../static/img/04.png" alt="отдам даром">
+                        <h2>отдам даром</h2>
+                        <p>бесплатные товары</p>
+                        <p>({{count_ads['отдам_даром']}})</p>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/детский_мир">
+                        <img src="../static/img/05.png" alt="детский мир">
+                        <h2>детский мир</h2>
+                        <p>игрушки, одежда</p>
+                        <p>({{count_ads['детский_мир']}})</p>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/животные">
+                        <img src="../static/img/06.png" alt="животные">
+                        <h2>животные</h2>
+                        <p>растения, корма</p>
+                        <p>({{count_ads['животные']}})</p>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/строительство">
+                        <img src="../static/img/07.png" alt="строительство">
+                        <h2>строительство</h2>
+                        <p>ремонт, материалы</p>
+                        <p>({{count_ads['строительство']}})</p>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/электроника">
+                        <img src="../static/img/08.png" alt="электроника">
+                        <h2>электроника</h2>
+                        <p>компьютеры, телефоны</p>
+                        <p>({{count_ads['электроника']}})</p>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 block-rubriс">
+                    <a href="/show/услуги">
+                        <img src="../static/img/09.png" alt="услуги">
+                        <h2>услуги</h2>
+                        <p>мастера, наем</p>
+                        <p>({{count_ads['услуги']}})</p>
+                    </a>
+                </div>
+
+                <div class="col-md-12 col-sm-12 block-rubriс">
+                    <a href="/show/все_объявления">
+                        <img src="../static/img/all.png" alt="ключи от квартиры">
+                        <h2>все объявления</h2>
+                        <p>({{count_all}})</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+{% endblock %}

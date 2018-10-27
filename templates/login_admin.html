@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<div class="container">
+    <div class="form">
+        <form action="/admin" method="POST" id="formRegLog" >
+                <div class="form-group">
+                    <input type="email" class="form-control" maxlength="50" name="email" required autofocus placeholder="Email">
+                </div>
+
+                <div class="form-group" >
+                    <input type="password" class="form-control" name="password" maxlength="50" required placeholder="Password">
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="checkboxLogin" id="exampleCheck2">
+                    <label class="form-check-label" for="exampleCheck2">Показать пароль</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+    </div>
+</div>
+
+{%endblock%}

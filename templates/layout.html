@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="application/json; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+
+    <link rel="shortcut icon" href="../static/img/leaf3.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <script src="../static/jQuery-3.3.1.js"></script>
+    <script src="../static/popper.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/typeahead.jquery.js"></script>
+    <script src="../static/handlebars-v4.0.11.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/js.js"></script>
+    <title>OneWeek</title>
+</head>
+
+<body>
+    <div style="width: 100%;height: 93px;"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <div class="logo">
+                    <h1><a class="navbar-brand logo-brand" href="/"><img src="../static/img/leaf3.png" alt="leaf">OneWeek</a></h1>
+                    <p id="under-logo">всегда свежие обьявления</p>
+                </div>
+
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        {% if session.user_id %}
+                        <li class="nav-item" id="bmApple">
+                            <a class="nav-link" href="/show_bookmarks"><img src="../static/img/icons8-яблоко-40.png" alt="oneweek" title="закладки"><span id='spanCountAppleBM'></span></a>
+                        </li>
+                        {%endif%}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" style="color: black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {%if not session.user_id %}
+                                    Войти
+                                {% else %}
+                                    Мой кабинет
+                                {% endif %}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {%if not session.user_id %}
+                                    <a class="dropdown-item" href="/login">Войти</a>
+                                    <a class="dropdown-item" href="/registration">Регистрация</a>
+                                {% else %}
+                                    <a class="dropdown-item" href="/my_ads">Мои объявления</a>
+                                    <a class="dropdown-item" href="/show_bookmarks">Закладки <span class="span-bookmarks-count"></span></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/logout">Выйти</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-success my-2 my-sm-0"><a href="/add" id="add">Подать объявление</a></button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% block main %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block main%}
+
+<div class="container">
+        <h4 class="header-page">Мои объявления</h4>
+            {% if ads %}
+                {% for ad in ads%}
+                <div class="row show-ads">
+                    <div class="darken-hover">
+                        <div class="ad-edit-button btn-group btn-group-lg " role="group" aria-label="Basic example">
+                            <a href="/update/{{ad.ads_id}}" type="button" class="btn btn-secondary">Обновить</a>
+                            <a href="/edit/{{ad.ads_id}}" type="button" class="btn btn-secondary">Редактировать</a>
+                            <a href="/delete/{{ad.ads_id}}" type="button" class="btn btn-secondary">Удалить</a>
+                        </div>
+                    </div>
+
+                    <div class="img-ads">
+                        <a href="/show_ad/{{ad.ads_id}}" >
+                            <img src="../{{ad.path}}" alt="img">
+                        </a>
+                    </div>
+
+                    <div class="col-lg-8 col-md-7 col-xl-9 col-sm-12">
+                        <div class="text-ads">
+                            <h4><a href="#">{{ad.header}}</a></h4>
+                            <p><a href="#">{{ad.rubric}}</a></p>
+                            <div><a href="#">{{ad.text}}</a></div>
+                            <ul>
+                                <li><a href="#">{{ad.city}}</a></li>
+                                <li><a href="#">{{ad.date}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% if ad.price != 0 %}
+                    <div class="my-ad-price">
+                        {{ad.price}}грн
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% endif %}
+</div>
+{% endblock %}

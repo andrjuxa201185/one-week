@@ -1,0 +1,439 @@
+@keyframes move{
+    0%{
+        transform: scale(1.0);
+        background: rgb(188, 212, 233);
+    }
+    30%{
+        transform: scale(1.025);
+        background: rgb(160, 224, 233);
+    }
+    60%{
+        transform: scale(1.05);
+        background: rgb(141, 223, 219);
+    }
+    80%{
+        transform: scale(1.025);
+        background: rgb(163, 210, 216);
+    }
+    100%{
+        transform: scale(1.0);
+        background: rgb(188, 212, 233);
+    }
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    position: relative;
+    background-color: rgb(226, 240, 234);
+}
+header{
+    background-color: seagreen;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.logo{
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px -2px 2px rgba(0, 0, 0, 0.555); 
+    width: 230px;
+}
+.logo-brand{
+    font-size: 38px;
+}
+#under-logo{
+    position: absolute;
+    left: 42px;
+    top: 52px;
+    color: rgb(138, 216, 48);
+    font-size: 12px;
+}
+.search{
+    margin-top: 15px;
+}
+.white-bg{
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+/* nav-panel-Apple */
+#bmApple{
+    margin-right: 20px;
+}
+#bmApple a{
+    padding: 0px;
+}
+#bmApple span{
+    vertical-align: top;
+}
+
+/* выбор рубрики */
+.block-rubriс{
+    text-align: center;
+    margin-top: 10px;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+.block-rubriс p{
+    margin: 0;
+    font-size: 12px;
+    color: grey;
+    line-height: 1.2em;
+}
+h2{
+    margin: 0px;
+}
+.block-rubriс a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+#add{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.block-rubriс:hover{
+    z-index: 99;
+    transition: all 0.2s ease;
+    transform: scale(1.1);
+}
+.span-bookmarks-count{
+    float: right;
+    color: gray;
+}
+
+/*формы*/
+#formRegLog{
+    width: 300px;
+    margin-top: 50px;
+    text-align: center;
+}
+.form{
+    display: flex;
+    justify-content: center;
+}
+#formRegLog div[class='form-check']{
+    margin-bottom: 50px;
+}
+
+#formAdd{
+    width: 700px;
+}
+.right-button{
+    display: flex;
+    justify-content: flex-end;
+}
+.header-page{
+    font-size: 32px;
+    margin-top: 30px;
+}
+textarea{
+    resize: none;
+}
+.star{
+    color: red;
+}
+.span-file{
+    font-size: 12px;
+    color: gray;
+}
+
+/* show */
+.aside-rubric ul{
+    background-color: white;
+    list-style-type: none;
+    padding: 5px;
+    margin-top: 10px;
+}
+.aside-rubric a{
+    text-decoration: none;
+    color: gray;
+    display: block;
+    font-size: 20px;
+    text-overflow: clip;
+}
+.aside-rubric li{
+    height: 50px;
+    padding: 10px;
+}
+.aside-rubric li:hover{
+    background-color: rgb(185, 183, 183);
+    transition: all 0.4s ease;
+}
+.aside-rubric li:hover a{
+    color: black;
+    display: block;
+}
+.aside-rubric span{
+    font-size: 16px;
+    display: block;
+    float: right;
+    position: relative;
+    top:5px;
+}
+
+#buttonFilterCity{
+    background: rgb(233, 231, 231);
+    color: black;
+    border: none;
+    border-radius: 0;
+    margin: 0 10px 10px 15px;
+}
+#buttonFilterDate{
+    background: rgb(233, 231, 231);
+    color: black;
+    border: none;
+    border-radius: 0;
+    margin: 0 15px 15px 15px;
+}
+.filters{
+    display: flex;
+    justify-content: flex-end;
+}
+@media (max-width: 576px) {
+    .aside-rubric a{
+        font-size: 13px;
+    }
+    .aside-rubric li{
+        height: auto;
+        padding: 2px;
+    }
+    .aside-rubric span{
+        position: relative;
+        top: 3px;
+        font-size: 11px;
+    }
+}
+
+
+/* show ads */
+.show-ads{
+    transition: 0.2s ease;
+    position: relative;
+    z-index: 98;
+    display: flex;
+    justify-content: flex-start;
+    background: white;
+    margin-top: 10px;
+}
+.show-ads:hover{
+    z-index: 99;
+    transition: 0.2s ease;
+    box-shadow: 0 0 20px 5px seagreen;
+    transform: scale(1.005);
+}
+.show-ads:hover .price-ads{
+    transition: 0.3s ease;
+    box-shadow: 0 0 5px 2px seagreen;
+    transform: scale(1.1) rotate(-5deg);
+}
+.img-ads{
+    padding: 0;
+}
+.img-ads a{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-ads img{
+    max-height: 100%;
+    max-width: 100%;
+}
+.text-ads {
+   height: 200px;
+}
+.text-ads h4{
+    margin: 15px 0 0 0;
+}
+.text-ads h4 a{
+    height: 32px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.text-ads p:first-of-type a{
+    color: grey;
+    font-size: 14px;
+    line-height: 1.2em;
+}
+.text-ads a{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.text-ads ul{
+    margin: 15px 0 0 0;
+}
+.text-ads li{
+    list-style-type: none;
+    display: inline-block;
+}
+.text-ads li a{
+    color: gray;
+    font-size: 14px;
+}
+.text-ads div{
+    height: 70px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.price-ads{
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    margin-left: -85px; 
+    margin-top: -55px;
+    transition: 0.4s ease;
+    background: wheat;
+    padding: 5px 10px;
+    color: gray;
+    border-radius: 10px;
+    font-size: 24px;
+}
+/* bookmarks */
+.apple{
+    position: absolute;
+    top: 10px;
+    left: 100%;
+    margin-left: -55px;
+}
+.apple:hover img{
+    transition: transform 0.2s ease;
+    transform: scale(1.2);
+}
+.apple img{
+    position: absolute;
+    transition: transform 0.2s ease;
+}
+.apple img:last-child{
+    opacity: 0;
+}
+/* .apple img:last-child:hover{
+    opacity: 1;
+} */
+
+
+
+@media (max-width: 1280px) {
+    .price-ads{
+        position: absolute;
+        top: 100%;
+        left: 100%;
+        margin-left: -85px; 
+        margin-top: -55px;
+        transform: rotate(0deg);
+        font-size: 18px;
+    }
+}
+
+/* show 1 ad */
+.ad-center{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.show-ad{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.show-ad img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.ad-main{
+    background: white;
+    margin-top: 40px;
+    padding: 20px;
+
+}
+.ad-main ul{
+    color: grey;
+    font-size: 14px;
+    line-height: 1.2em;
+    list-style-type: none;
+}
+.ad-main ul li{
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.ad-price-tel{
+    background: teal;
+    margin: 40px 0px 10px 10px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.555);
+    text-align: center;
+}
+
+/* my ads */
+.my-ad-price{
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    margin-left: -85px; 
+    margin-top: -55px;
+}
+.darken-hover{
+   display: none;
+}
+.show-ads:hover .darken-hover{
+    background: rgba(128, 194, 168, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 777;
+    top: 0;
+    left: 0px;
+}
+
+/* typeahead */
+
+.typeahead{
+    transition: all 0.2s ease;
+    background: rgb(188, 212, 233);
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 3px 0 0 3px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(85, 84, 84);
+    animation: move 0.3s 1 ease-out;
+    border-bottom: solid 1px rgb(184, 183, 183);
+}
+.typeahead:hover{
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background-color: rgb(151, 172, 190);
+}
+.typeahead:last-child{
+    border-radius: 0 0 10px 10px;
+    border-bottom: none;
+}
+
+
+

@@ -1,4 +1,4 @@
-import os
+﻿import os
 from flask import Flask, redirect, render_template, jsonify, session, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
@@ -11,10 +11,10 @@ from werkzeug.exceptions import RequestEntityTooLarge
 from flask_uploads import UploadSet, IMAGES
 
 app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024
-
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 

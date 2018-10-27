@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<div class="container">
+        <h4 class="header-page">{{header}}</h4>
+            {% if ads %}
+                {% for ad in ads%}
+                <div class="row show-ads">
+                    <div class="img-ads">
+                        <a href="/show_ad/{{ad.ads_id}}">
+                            <img src="../{{ad.path}}" alt="img">
+                        </a>
+                    </div>
+
+                    <div class="col-lg-8 col-md-7 col-xl-9 col-sm-12">
+                        <div class="text-ads">
+                            <h4><a href="#">{{ad.header}}</a></h4>
+                            <p><a href="#">{{ad.rubric}}</a></p>
+                            <div><a href="#">{{ad.text}}</a></div>
+                            <ul>
+                                <li><a href="#">{{ad.city}}</a></li>
+                                <li><a href="#">{{ad.date}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% if ad.price != 0 %}
+                    <div class="my-ad-price">
+                        {{ad.price}}грн
+                    </div>
+                    {% endif %}
+
+                    {% if session.user_id %}
+                        <div class="apple">
+                            <img class="img-apple" src="../static/img/icons8-яблоко-402.png" alt="apple" title="добвить в закладки">
+                            <img class="img-apple2" data-id="{{ad.ads_id}}" {%if ad.ads_id in bookmarks%}style="opacity:1" 
+                            title="удалить из закладок"{%else%}title="добвить в закладки"{%endif%}
+                            src="../static/img/icons8-яблоко-40.png" alt="apple">
+                        </div>
+                    {% endif %}
+
+                </div>
+                {% endfor %}
+            {% endif %}
+</div>
+{% endblock %}
